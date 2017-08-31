@@ -2,7 +2,21 @@
 
 {% block body %}
     <h1> BLOG </h1>
+{% for post in posts %}
+    <div>
+        <h2>Tytuł:{{ post.title }}</h2>
+        <h3>{{ post.lead }}</h3>
+        <p>{{ post.content }}</p>
+        <p><a href="http://wp.pl/{{post.title}}">wp.pl</a></p>
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+  <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </button>
+    </div>    
+    {% endfor %}  
+    {# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(posts) }}
+</div>
+    
 {% endblock %}
 
-{% block stylesheets %}
-{% endblock %}
