@@ -2,9 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Post;
+use AppBundle\Entity\Comment;
+use AppBundle\Form\CommentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 
 class DefaultController extends Controller
 {
@@ -34,12 +38,17 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/article/{id}", name="post_show")
+     * @Route("/art/{id}", name="post_show")
      */
     public function showAction(Post $post)
         {
+            $form = $this ->createForm(CommentType::class);
             return $this->render('default/show.html.twig', array (
-                'post' =>$post
+                'post' =>$post,
+                'form' => $form->createView()
+             
+                
             ));
+               
         }
 }
