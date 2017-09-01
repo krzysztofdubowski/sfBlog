@@ -164,5 +164,9 @@ class Post
      */
     private $comments;
     
+    public function __toString() {
+        return $this->title;
+    }
+    
 }
 

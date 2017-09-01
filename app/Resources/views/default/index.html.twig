@@ -3,15 +3,19 @@
 {% block body %}
     <h1> BLOG </h1>
 {% for post in posts %}
-    <div>
-        <h2>Tytuł:{{ post.title }}</h2>
+    <div class="blog-post">
+        <h2 class="blog-post-tittle"><a href="{{ path ('post_show',{'id':post.id})}}">{{ post.title }}</a></h2>
         <h3>{{ post.lead }}</h3>
         <p>{{ post.content }}</p>
-        <p><a href="http://wp.pl/{{post.title}}">wp.pl</a></p>
+        <p><a href="{{ path ('post_show',{'id':post.id})}}">ARTYUTSYS</a></p>
         <button type="button" class="btn btn-default" aria-label="Left Align">
   <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
     </button>
-    </div>    
+         <p class="blog-post-meta">
+           Data utworzenia {{post.createdAt|date('Y-m-d')}}
+        </p>
+    </div>  
+      
     {% endfor %}  
     {# display navigation #}
 <div class="navigation">

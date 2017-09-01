@@ -7,15 +7,18 @@
         <h1>Tytuł:{{ post.title }} </h2>
         <p>{{ post.lead }}</p>
         <p>{{ post.content }}</p>
+        <span class="">Dodano {{post.createdAt | date('Y-m-d')}}</span>
         <hr>
         <h3>komentarze</h3>
+        
+        {{form_start(form)}}
+            {{form_widget(form)}}
+        {{form_end(form)}}
   
     </div>    
 
     {# display navigation #}
-<div class="navigation">
-    {{ knp_pagination_render(posts) }}
-</div>
+
     
 {% endblock %}
 

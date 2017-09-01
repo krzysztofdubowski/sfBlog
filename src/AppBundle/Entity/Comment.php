@@ -108,5 +108,8 @@ class Comment
     {
         return $this->createAt;
     }
+    public function __toString() {
+        return $this->content;
+    }
 }
 
