@@ -10,6 +10,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * Wersja 1.3
      */
     public function indexAction(Request $request)
     {
